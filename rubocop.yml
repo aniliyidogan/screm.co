@@ -1,0 +1,20 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  TargetRailsVersion: 5.2
+  DisplayCopNames: true
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+
+require:
+  - rubocop-rspec
+
+inherit_from:
+  - http://shopify.github.io/ruby-style-guide/rubocop.yml
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/BlockComments:
+  Enabled: false

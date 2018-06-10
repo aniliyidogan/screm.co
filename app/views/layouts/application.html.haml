@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Screm
+    = action_cable_meta_tag
+    = csrf_meta_tags
+    = csp_meta_tag
+    = favicon_link_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .container
+      = link_to root_path do
+        = image_tag 'screm', height: '64px', width: '64px'
+      = yield
+    .footer
+      = render 'shared/footer'

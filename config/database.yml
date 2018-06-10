@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: scrum_poker_development
+
+test:
+  <<: *default
+  database: scrum_poker_test
+
+production:
+  <<: *default
+  database: scrum_poker_production
+  username: scrum_poker
+  password: <%= ENV['SCRUM_POKER_DATABASE_PASSWORD'] %>

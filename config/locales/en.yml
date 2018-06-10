@@ -1,0 +1,6 @@
+en:
+  hello: 'Hello world'
+  poker_not_found: 'Poker game not found'
+  poker_locked: 'Poker game is locked'
+  too_much_member: 'member (maximum is %{limit} members)'
+  ip_restriction: 'Life is short, birds are flying. Please waiting :)'

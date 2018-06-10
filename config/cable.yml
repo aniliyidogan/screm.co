@@ -1,0 +1,10 @@
+development:
+  adapter: async
+
+test:
+  adapter: async
+
+production:
+  adapter: redis
+  url: <%= Rails.application.credentials.dig(:redistogo_url) %>
+  channel_prefix: scrum_poker_production

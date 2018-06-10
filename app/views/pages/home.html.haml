@@ -1,0 +1,44 @@
+.alert= flash[:alert]
+- if current_member
+  %ul
+    %li= link_to 'Out Poker', out_poker_path, method: :delete
+    - if master?
+      %li= link_to 'Go Poker Points', points_path
+      %hr
+      .pin_code= current_pin_code
+      %hr
+      #poker-members
+        = render partial: '/pokers/member', collection: @members
+    - else
+      %hr
+      %ul
+        - @cards.each do |card|
+          = link_to choose_card_path(card), method: :post, remote: true do
+            %li.card
+              %p.choose= card.name
+
+- else
+  %center
+    .limiter
+      .box
+        .wrap
+          .description
+            %b Screm.co
+            is scrum poker game.
+            Start immediately.
+            %br
+            %b Are you Scrum Master?
+            %br= link_to 'Sign in with Google*', provider_path(:google_oauth2)
+          = form_tag '/login', method: :post do
+            %span.login-poker-form-title.p-b-26
+            .wrap-input-poker
+              %input.input-poker{:name => "pin_code", :type => "text", maxlength: "6", placeholder: "640046"}/
+              %span.focus-input-poker
+            .wrap-input-poker
+              %input.input-poker{:name => "name", :type => "text", maxlength: "18", placeholder: "david hansson"}/
+              %span.focus-input-poker
+            .box-form-btn
+              .wrap-form-btn
+                .login-poker-form-bgbtn
+                %button.login-poker-form-btn
+                  Go Poker

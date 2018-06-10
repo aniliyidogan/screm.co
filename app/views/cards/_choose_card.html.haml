@@ -1,0 +1,9 @@
+%ul
+  %li.result.card{ id: "#{'selected' if choose_card.poker.locked }"}
+    %p.card-member-name
+      %span{id: "member-name-#{choose_card.id}"}= choose_card.member.name
+    %p.card_num{id: "member-card-name-#{choose_card.id}"}
+      - if choose_card.poker.locked
+        = choose_card.card.name
+      - else
+        ?

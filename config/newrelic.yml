@@ -1,0 +1,4 @@
+production:
+  license_key: <%= Rails.application.credentials.dig(:newrelic_license_key) %>
+  app_name: Screm
+  log_level: info

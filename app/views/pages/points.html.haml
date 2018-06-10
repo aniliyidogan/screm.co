@@ -1,0 +1,11 @@
+%ul
+  - if master?
+    %li= link_to 'Go Home', root_path
+    %li#reset-poker= link_to 'Reset Poker', reset_poker_path, remote: true, method: :delete
+    %li#result-poker= link_to_unless(current_poker.locked, 'Result Poker', { controller: :pokers, action: :result } , { remote: true, method: :patch })
+  - else
+    %li= link_to 'Go Choose Card', root_path unless current_poker.locked
+.suggested= current_poker.suggested
+%hr
+#member-cards
+  = render partial: '/cards/choose_card', collection: @choose_cards
