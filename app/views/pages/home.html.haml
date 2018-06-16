@@ -6,6 +6,8 @@
       %li= link_to 'Go Poker Points', points_path
       %hr
       .pin_code= current_pin_code
+      .copy-link{'title' => 'copied!', 'data-clipboard-text' => "#{root_url}?pin_code=#{current_pin_code}"}
+        = octicon "link", height: 32
       %hr
       #poker-members
         = render partial: '/pokers/member', collection: @members
@@ -28,17 +30,27 @@
             Start immediately.
             %br
             %b Are you Scrum Master?
-            %br= link_to 'Sign in with Google*', provider_path(:google_oauth2)
+            %br= link_to 'Sign in with Google', provider_path(:google_oauth2)
           = form_tag '/login', method: :post do
             %span.login-poker-form-title.p-b-26
             .wrap-input-poker
-              %input.input-poker{:name => "pin_code", :type => "text", maxlength: "6", placeholder: "640046"}/
+              %input.input-poker{:name => "pin_code", :value => params[:pin_code], :type => "text", maxlength: "6", placeholder: "640046"}/
               %span.focus-input-poker
             .wrap-input-poker
-              %input.input-poker{:name => "name", :type => "text", maxlength: "18", placeholder: "david hansson"}/
+              %input.input-poker{:name => "name", :type => "text", maxlength: "18", placeholder: "david hansson", autofocus: params[:pin_code].present?}/
               %span.focus-input-poker
             .box-form-btn
               .wrap-form-btn
                 .login-poker-form-bgbtn
                 %button.login-poker-form-btn
                   Go Poker
+:javascript
+  new ClipboardJS('.copy-link');
+  tippy('.copy-link',{
+    animation: 'shift-away',
+    placement: 'right',
+    trigger: 'click',
+    arrow: true,
+    arrowType: 'round',
+    touchHold: false
+  });
