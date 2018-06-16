@@ -10,6 +10,8 @@
     = favicon_link_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{:src => "https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"}
   %body
     .container
       = link_to root_path do
