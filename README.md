@@ -1,5 +1,3 @@
-![screm.co](https://www.screm.co/assets/screm.png)
-
 # What is Scrum Poker
 Consensus-based, gamified technique for estimating, mostly used to estimate effort or relative size of development goals in software development.
 
